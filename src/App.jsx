@@ -21,10 +21,58 @@ const H2 = styled.div`
 
 const Content = styled.div`
 	color: #000;
-	padding: 50px 20px 20px 20px;
+	padding: 60px 20px 20px 20px;
 	text-align: right;
 	h3 {
 		font-weight: 700;
+	}
+	svg {
+		width: 10%;
+	}
+`;
+
+const Switch = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+	input {
+		position: relative;
+		width: 14%;
+		bottom: 5px;
+	}
+	input:before {
+		content: "";
+		position: absolute;
+		width: 50px;
+		height: 25px;
+		background: black;
+		border-radius: 30px;
+	}
+	input:after {
+		content: "";
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		background: white;
+		border-radius: 25px;
+		transition: 0.25s;
+		border: 2px solid #000;
+		box-sizing: border-box;
+	}
+	input:checked:after {
+		left: 25px;
+		border: 2px solid black;
+	}
+	input:checked:before {
+		background-image: linear-gradient(
+			to left,
+			#ffd700,
+			#7b68ee,
+			#3498db,
+			#2ecc71,
+			#ffd700
+		);
 	}
 `;
 
@@ -46,6 +94,40 @@ const Section = styled.div`
 		color: #000;
 	}
 `;
+
+const LongText = styled.div`
+	width: 100%;
+	overflow: hidden;
+	background-image: linear-gradient(
+		to left,
+		#ffd700,
+		#7b68ee,
+		#3498db,
+		#2ecc71,
+		#ffd700
+	);
+	span {
+		display: inline-block;
+		text-transform: uppercase;
+		white-space: nowrap;
+		color: black;
+		font-size: 11px;
+		letter-spacing: 1.2px;
+		line-height: 37px;
+		animation: 10s linear infinite longText;
+
+		@keyframes longText {
+			from {
+				transform: translateX(0) translateZ(0);
+			}
+
+			to {
+				transform: translateX(-50%) translateZ(0);
+			}
+		}
+	}
+`;
+
 const ClickOutside = (ref, handler) => {
 	useEffect(() => {
 		const listener = (event) => {
@@ -76,6 +158,11 @@ const App = () => {
 				</H2>
 			</Head>
 			<Content>
+				<Switch>
+					<span>Spanish</span>
+					<input type="checkbox"></input>
+					<span>English</span>
+				</Switch>
 				<H2>
 					Escribo código y me gusta trabajar en productos digitales para
 					resolver necesidades del cliente. Vivo en Buenos Aires con mi perra
@@ -115,6 +202,13 @@ const App = () => {
 					</a>
 				</Section>
 			</Content>
+			<LongText>
+				<span>
+					<span>---</span>
+					"La inteligencia es la habilidad de adaptarse a los cambios" - Stephen
+					Hawking{" "}
+				</span>
+			</LongText>
 		</>
 	);
 };
