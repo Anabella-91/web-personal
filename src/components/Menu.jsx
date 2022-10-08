@@ -2,27 +2,28 @@ import styled from "styled-components";
 import { bool } from "prop-types";
 
 export const StyledMenu = styled.nav`
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background: #dddddd;
+	background: #2a2b25;
 	text-align: left;
-	padding: 10px;
+	padding: 50% 10%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	transition: transform 0.3s ease-in-out;
-	transform: ${({ open }) => (open ? "translateY(0)" : "translateY(-100%)")};
+	transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
 
 	a {
 		padding: 20px 0;
-		font-weight: bold;
-		letter-spacing: 4px;
-		color: #000;
+		letter-spacing: 3px;
+		color: #fff;
 		text-decoration: none;
 		transition: color 0.3s linear;
 		text-align: center;
+	}
+	@media only screen and (min-width: 1024px) {
+		padding: 24% 10%;
 	}
 `;
 

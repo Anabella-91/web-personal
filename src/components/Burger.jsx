@@ -4,27 +4,28 @@ import styled from "styled-components";
 
 export const StyledBurger = styled.button`
 	position: absolute;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	height: 37px;
+	justify-content: space-evenly;
 	border: none;
 	cursor: pointer;
 	z-index: 10;
-	background: ${({ open }) => (open ? "#dddddd" : "#fff")};
+	background: ${({ open }) => (open && "#2A2B25") || "#2A2B25"};
+	margin: 5px 0 0 14px;
 
 	&:focus {
 		outline: none;
 	}
 
 	div {
-		width: 35px;
+		width: 30px;
 		height: 5px;
 		border-radius: 10px;
 		transition: all 0.3s linear;
 		position: relative;
 		transform-origin: 1px;
-		background: #000;
+		background: #fff;
 		:first-child {
 			transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
 		}
